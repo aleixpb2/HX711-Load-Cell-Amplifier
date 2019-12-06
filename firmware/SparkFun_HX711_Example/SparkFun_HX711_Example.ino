@@ -25,7 +25,7 @@
 
 #include "HX711.h" //This library can be obtained here http://librarymanager/All#Avia_HX711
 
-#define calibration_factor -7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
+#define calibration_factor 430000.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
 
 #define LOADCELL_DOUT_PIN  3
 #define LOADCELL_SCK_PIN  2
@@ -45,7 +45,7 @@ void setup() {
 
 void loop() {
   Serial.print("Reading: ");
-  Serial.print(scale.get_units(), 1); //scale.get_units() returns a float
-  Serial.print(" lbs"); //You can change this to kg but you'll need to refactor the calibration_factor
+  Serial.print(scale.get_units(1), 3); //scale.get_units() returns a float
+  Serial.print(" kg");
   Serial.println();
 }
